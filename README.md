@@ -8,7 +8,9 @@
 - http://stocks.ahci.work/detailed
 - http://stocks.ahci.work/compact
 
-<img src="public/screen.png"/>
+<img src="public/fig1.png"/>
+<img src="public/fig2.png"/>
+<img src="public/fig3.png"/>
 
 ```
 bower install
