@@ -1,0 +1,23 @@
+{
+  "name": "stockprices",
+  "version": "1.0.0",
+  "description": "All probability is conditional. Truths are known because of the conditions assumed given the evidence in observations.",
+  "main": "index.js",
+  "dependencies": {
+    "highcharts": "^4.2.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranciscoGutierrez/stockprices.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FranciscoGutierrez/stockprices/issues"
+  },
+  "homepage": "https://github.com/FranciscoGutierrez/stockprices#readme"
+}
