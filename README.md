@@ -9,7 +9,7 @@
 - http://stocks.ahci.work/compact
 
 <img src="public/fig1.png"/>
-<img src="public/fig2.png"/>
+<img src="public/fig4.png"/>
 <img src="public/fig3.png"/>
 
 ```
