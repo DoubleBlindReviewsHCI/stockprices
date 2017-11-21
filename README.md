@@ -1,7 +1,7 @@
 # Stock Prices Visualisation
 
 
-Available online in the following links:
+**Available online** in the following links:
 
 
 - http://stocks.ahci.work/intuitive
