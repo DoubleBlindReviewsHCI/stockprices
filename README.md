@@ -1,8 +1,7 @@
 # Stock Prices Visualisation
 
 
-**Available online** in the following links:
-
+The three dashboards are **Available online** in the following links:
 
 - http://stocks.ahci.work/intuitive
 - http://stocks.ahci.work/detailed
