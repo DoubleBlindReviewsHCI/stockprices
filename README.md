@@ -1,7 +1,12 @@
 # Stock Prices Visualisation
 
->All probability is conditional.
->Truths are known because of the conditions assumed given the evidence in observations.
+
+Available online in the following links:
+
+
+- http://stocks.ahci.work/intuitive
+- http://stocks.ahci.work/detailed
+- http://stocks.ahci.work/compact
 
 <img src="public/screen.png"/>
 
