@@ -1,0 +1,376 @@
+ <template name="question">
+  <div class="big-question-container">
+    <div class="question-nav">Question {{legend}}</div>
+    <paper-button class="start-question">START</paper-button>
+
+    <div class="question-container question-1">
+      <div class="question-intro">
+        Consumer trust is moderate (50%) and Economic Growth is very good (100%),
+      </div>
+      <div class="question-body">
+        Which stock loses more than any other?
+      </div>
+      <div class="question-answers" style="visibility: hidden;">
+        <label><input type="radio" name="cities" value="disney"     class="radio-button city-radio rb-newyork">Disney    </label>
+        <label><input type="radio" name="cities" value="home depot" class="radio-button city-radio rb-angeles">Home Depot</label>
+        <label><input type="radio" name="cities" value="apple"      class="radio-button city-radio rb-houston">Apple     </label>
+        <label><input type="radio" name="cities" value="chevron"    class="radio-button city-radio rb-denver" >Chevron   </label>
+        <label><input type="radio" name="cities" value="ibm"        class="radio-button city-radio rb-atlanta">IBM       </label>
+        <label><input type="radio" name="cities" value="mcdonalds"  class="radio-button city-radio rb-seattle">McDonald's</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-2" style="display: none;">
+      <div class="question-intro">
+        You expect a very good <b>Consumer Trust (100%)</b> and a very bad <b>Dow Jones Index (0%)</b>,
+      </div>
+      <div class="question-body">
+        McDonald's loses more than...
+      </div>
+      <div class="question-answers" style="visibility: hidden;">
+        <label><input type="radio" name="cities" value="disney"     class="radio-button city-radio rb-newyork">Disney    </label>
+        <label><input type="radio" name="cities" value="home depot" class="radio-button city-radio rb-angeles">Home Depot</label>
+        <label><input type="radio" name="cities" value="apple"      class="radio-button city-radio rb-houston">Apple     </label>
+        <label><input type="radio" name="cities" value="chevron"    class="radio-button city-radio rb-denver" >Chevron   </label>
+        <label><input type="radio" name="cities" value="ibm"        class="radio-button city-radio rb-atlanta">IBM       </label>
+        <label><input type="radio" name="cities" value="mcdonalds"  class="radio-button city-radio rb-seattle">McDonald's</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-3" style="display: none;">
+      <div class="question-intro">
+        You expect IBM's stock to be exactly $127.91 and you only consider one factor.
+      </div>
+      <div class="question-body">
+        Which factor needs to be very good (100%) to confirm your expectation?
+      </div>
+      <div class="question-answers">
+        <label><input type="radio" name="factors" value="consumer trust"   class="radio-button city-radio rb-newyork">Consumer Trust </label>
+        <label><input type="radio" name="factors" value="worldwide news"   class="radio-button city-radio rb-angeles">Worldwide News </label>
+        <label><input type="radio" name="factors" value="economic growth"  class="radio-button city-radio rb-houston">Economic Growth</label>
+        <label><input type="radio" name="factors" value="dow jones index"  class="radio-button city-radio rb-denver" >Dow Jones Index</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+
+
+    <div class="question-container question-4" style="display: none;">
+      <div class="question-intro">
+        Consumer Trust is moderately bad (25%), Economic Growth and the Dow Jones Index are moderately good (75%).
+      </div>
+      <div class="question-body">
+        What is the value for the <b>Worldwide News</b>, when <b>Home Depot's</b> stock is <b>$129.99</b>?
+      </div>
+      <div class="question-answers" style="visibility: visible;">
+        Worldwide News: <div style="border-bottom: 2px solid #9c56b8">{{slider2}}</div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+
+    <div class="question-container question-5" style="display: none;">
+      <div class="question-intro">
+        If you consider all 4 factors to be moderately good (75%)
+      </div>
+      <div class="question-body">
+        Which stocks are expected to grow more than 5%?
+      </div>
+      <div class="question-answers">
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <select class="form-control control-a-4" style="width: 100px;">
+            <option></option>
+            <option>Disney</option>
+            <option>Home Depot</option>
+            <option>Apple</option>
+            <option>Chevron</option>
+            <option>IBM</option>
+            <option>McDonald's</option>
+          </select>
+          &nbsp; and &nbsp;
+          <select class="form-control control-b-4" style="width: 100px;">
+            <option></option>
+            <option>Disney</option>
+            <option>Home Depot</option>
+            <option>Apple</option>
+            <option>Chevron</option>
+            <option>IBM</option>
+            <option>McDonald's</option>
+          </select>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-5-1 golden" style="display: none;">
+      <div class="question-intro">
+        If you consider <b>Worldwide News</b> and <b>Consumer Trust</b>,
+      </div>
+      <div class="question-body">
+        How much is 50 plus 10?
+      </div>
+      <div class="question-answers" style="visibility: visible;">
+        <div style="width: 100%;">
+          <div id="question-slider1" style="height: 10px; background: grey;"></div>
+          <div  class="slider-tooltip tooltip1" style="left: {{sliderGold1.x}}%">{{sliderGold1.a}}</div>
+          <div class="pips">
+            <span>0</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-golden">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-6" style="display: none;">
+      <div class="question-intro">
+        If you consider all 4 factors to be moderate (50%),
+      </div>
+      <div class="question-body">
+        Which company has the least certain stock price value?
+      </div>
+      <div class="question-answers">
+        <label><input type="radio" name="cities" value="disney"     class="radio-button city-radio rb-newyork">Disney    </label>
+        <label><input type="radio" name="cities" value="home depot" class="radio-button city-radio rb-angeles">Home Depot</label>
+        <label><input type="radio" name="cities" value="apple"      class="radio-button city-radio rb-houston">Apple     </label>
+        <label><input type="radio" name="cities" value="chevron"    class="radio-button city-radio rb-denver" >Chevron   </label>
+        <label><input type="radio" name="cities" value="ibm"        class="radio-button city-radio rb-atlanta">IBM       </label>
+        <label><input type="radio" name="cities" value="mcdonalds"  class="radio-button city-radio rb-seattle">McDonald's</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-7" style="display: none;">
+      <div class="question-intro">
+        Only the Worldwide News are very good (100%),
+      </div>
+      <div class="question-body">
+        Which 2 companies have the highest predicted stock value?
+      </div>
+      <div class="question-answers">
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <select class="form-control control-a-4" style="width: 100px;">
+            <option></option>
+            <option>Disney</option>
+            <option>Home Depot</option>
+            <option>Apple</option>
+            <option>Chevron</option>
+            <option>IBM</option>
+            <option>McDonald's</option>
+          </select>
+          &nbsp; and &nbsp;
+          <select class="form-control control-b-4" style="width: 100px;">
+            <option></option>
+            <option>Disney</option>
+            <option>Home Depot</option>
+            <option>Apple</option>
+            <option>Chevron</option>
+            <option>IBM</option>
+            <option>McDonald's</option>
+          </select>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-7-1 golden" style="display: none;">
+      <div class="question-intro">
+        If you only consider <b>Worldwide News</b> and <b>Consumer Trust</b>,
+      </div>
+      <div class="question-body">
+        How much is 30 plus 5?
+      </div>
+      <div class="question-answers" style="visibility: visible;">
+        <div style="width: 100%;">
+          <div id="question-slider2" style="height: 10px; background: grey;"></div>
+          <div  class="slider-tooltip tooltip1" style="left: {{sliderGold2.x}}%">{{sliderGold2.a}}</div>
+          <div class="pips">
+            <span>0</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-golden">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-8" style="display: none;">
+      <div class="question-intro">
+        If you consider all 4 factor to be very bad (0%),
+      </div>
+      <div class="question-body">
+        Which is the most profitable stock to invest?
+      </div>
+      <div class="question-answers">
+        <label><input type="radio" name="cities" value="disney"     class="radio-button city-radio rb-newyork">Disney    </label>
+        <label><input type="radio" name="cities" value="home depot" class="radio-button city-radio rb-angeles">Home Depot</label>
+        <label><input type="radio" name="cities" value="apple"      class="radio-button city-radio rb-houston">Apple     </label>
+        <label><input type="radio" name="cities" value="chevron"    class="radio-button city-radio rb-denver" >Chevron   </label>
+        <label><input type="radio" name="cities" value="ibm"        class="radio-button city-radio rb-atlanta">IBM       </label>
+        <label><input type="radio" name="cities" value="mcdonalds"  class="radio-button city-radio rb-seattle">McDonald's</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-9" style="display: none;">
+      <div class="question-intro">
+        You have very precise expectations,
+      </div>
+      <div class="question-body">
+        <b>Consumer Trust</b> at 39%, <b>Worldwide News</b> at 68%, <b>Economic Growth</b> at 38% and the <b>Dow Jones Index</b> at 62%.
+      </div>
+      <div class="question-answers">
+        <select class="form-control control-b-4" style="width: 100px;">
+          <option></option>
+          <option>Disney</option>
+          <option>Home Depot</option>
+          <option>Apple</option>
+          <option>Chevron</option>
+          <option>IBM</option>
+          <option>McDonald's</option>
+        </select>
+        &nbsp; gains more than &nbsp;
+        <select class="form-control control-b-4" style="width: 100px;">
+          <option></option>
+          <option>Disney</option>
+          <option>Home Depot</option>
+          <option>Apple</option>
+          <option>Chevron</option>
+          <option>IBM</option>
+          <option>McDonald's</option>
+        </select>
+        &nbsp; but less than &nbsp;
+        <select class="form-control control-b-4" style="width: 100px;">
+          <option></option>
+          <option>Disney</option>
+          <option>Home Depot</option>
+          <option>Apple</option>
+          <option>Chevron</option>
+          <option>IBM</option>
+          <option>McDonald's</option>
+        </select>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-9-1 golden" style="display: none;">
+      <div class="question-intro">
+        If you only consider <b>Worldwide News</b> and <b>Consumer Trust</b>,
+      </div>
+      <div class="question-body">
+        How much is 24 plus 1?
+      </div>
+      <div class="question-answers" style="visibility: visible;">
+        <div style="width: 100%;">
+          <div id="question-slider3" style="height: 10px; background: grey;"></div>
+          <div  class="slider-tooltip tooltip1" style="left: {{sliderGold3.x}}%">{{sliderGold3.a}}</div>
+          <div class="pips">
+            <span>0</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-golden">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-10" style="display: none;">
+      <div class="question-intro">
+        <b>Economic Growth</b> and <b>Consumer Trust</b> are moderate (Both 50%),
+      </div>
+      <div class="question-body">
+        What is the value for <b>Dow Jones Index</b>, when <b>Chevron</b> stock is <b>$110.11</b>?
+      </div>
+      <div class="question-answers">
+        Dow Jones Index: <div style="border-bottom: 2px solid #2e97de">{{slider4}}</div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-11" style="display: none;">
+      <div class="question-intro">
+        You expect the <b>Economic Growth</b> to be moderate (50%)
+      </div>
+      <div class="question-body">
+        How does the <b>Dow Jones index</b> has to be,
+        so that the growth of <b>Apple</b> is exactly
+        the opposite of the growth of <b>IBM</b>?
+      </div>
+      <div class="question-answers">
+        Dow Jones Index: <div style="border-bottom: 2px solid #2e97de">{{slider4}}</div>
+      </div>
+      <div class="question-buttons" style="visibility: visible;">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-11-1 golden" style="display: none;">
+      <div class="question-intro">
+        If you consider <b>Worldwide News</b> and <b>Consumer Trust</b>,
+      </div>
+      <div class="question-body">
+        How much is 74 plus 1?
+      </div>
+      <div class="question-answers" style="visibility: visible;">
+        <div style="width: 100%;">
+          <div id="question-slider4" style="height: 10px; background: grey;"></div>
+          <div  class="slider-tooltip tooltip1" style="left: {{sliderGold4.x}}%">{{sliderGold4.a}}</div>
+          <div class="pips">
+            <span>0</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-golden">Submit</paper-button>
+      </div>
+    </div>
+
+    <div class="question-container question-12" style="display:  none;">
+      <div class="question-intro">
+        If you discard all other indicators,
+      </div>
+      <div class="question-body">
+         In which stock does the <b>Worldwide News</b> have the strongest influence?
+      </div>
+      <div class="question-answers">
+        <label><input type="radio" name="cities" value="disney"     class="radio-button city-radio rb-newyork">Disney    </label>
+        <label><input type="radio" name="cities" value="home depot" class="radio-button city-radio rb-angeles">Home Depot</label>
+        <label><input type="radio" name="cities" value="apple"      class="radio-button city-radio rb-houston">Apple     </label>
+        <label><input type="radio" name="cities" value="chevron"    class="radio-button city-radio rb-denver" >Chevron   </label>
+        <label><input type="radio" name="cities" value="ibm"        class="radio-button city-radio rb-atlanta">IBM       </label>
+        <label><input type="radio" name="cities" value="mcdonalds"  class="radio-button city-radio rb-seattle">McDonald's</label>
+      </div>
+      <div class="question-buttons">
+        <paper-button class="big-next">Submit</paper-button>
+      </div>
+    </div>
+
+  </div>
+</template>

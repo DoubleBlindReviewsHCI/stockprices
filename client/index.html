@@ -1,0 +1,88 @@
+<head>
+  <title>Stock Prices</title>
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+  <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,700" rel="stylesheet">
+  <script src="https://use.fontawesome.com/d54412c64e.js"></script>
+  <style is="custom-style">
+  paper-slider.slider-green  { --paper-slider-knob-color: #00a185; --paper-slider-active-color: #00bd9c; }
+  paper-slider.slider-purple { --paper-slider-knob-color: #9c56b8; --paper-slider-active-color: #8f3faf; }
+  paper-slider.slider-orange { --paper-slider-knob-color: #e87e04; --paper-slider-active-color: #d55500; }
+  paper-slider.slider-blue   { --paper-slider-knob-color: #2e97de; --paper-slider-active-color: #217fbb; }
+  paper-slider.slider-grey   { --paper-slider-knob-color: #424242; --paper-slider-active-color: #a1a1a1; --paper-slider-pin-color: #a1a1a1; width: 100%; }
+
+  paper-checkbox.slider-green  { --paper-checkbox-checked-color: #00a185; --paper-checkbox-unchecked-color: #00bd9c; }
+  paper-checkbox.slider-purple { --paper-checkbox-checked-color: #9c56b8; --paper-checkbox-unchecked-color: #8f3faf; }
+  paper-checkbox.slider-orange { --paper-checkbox-checked-color: #e87e04; --paper-checkbox-unchecked-color: #d55500; }
+  paper-checkbox.slider-blue   { --paper-checkbox-checked-color: #2e97de; --paper-checkbox-unchecked-color: #217fbb; }
+  </style>
+</head>
+
+<body>
+  <div class="welcome-screen"></div>
+  <div class="loading-screen">
+    <paper-spinner active></paper-spinner>
+  </div>
+  <div class="big-thanks" style="display: none;">
+  <div class="big-thanks-container">
+    <h1 style="font-size: 32px;">Thank you!</h1>
+    <h1 style="width: 500px; font-size: 24px; width: 500px; background: #f1f1f1; border: 10px solid #f1f1f1; text-align: center;">Your Amazon mTurk code is: <b>{{assignment}}</b></h1>
+    <h2 style="width: 500px;"><h2 style="color: red; font-size: 32px;">Warning!</h2> <p style="font-size: 16px;">In order to get your <b>reward</b> you still have to <b style="color: red;">complete the following questionnaire:</b></p></h2>
+    <h2 style="width: 500px; background: #e1e1e1; padding: 10px;"><b>Important:</b> Please make sure you copy your code or note it down somewhere. You will need it in the following questionnaire and in order to get a reward.</h2>
+    <h2 style="width: 500px;">Please <a class="gurl" href="{{googleform}}" target="_blank"><b>CLICK HERE</b></a> to answer the <b>short questionnaire.</b></h2>
+  </div>
+</div>
+  <div class="content-left"></div>
+  <div class="content-right">
+    <div class="visualisations"></div>
+    <div class="questions">
+      {{> question}}
+    </div>
+  </div>
+</body>
+
+<template name="dummy"></template>
+
+<template name="regression">
+  <div class="visualisations-row" style="margin-top: 0px;">
+    {{>lifequality name="dis"  title="Disney"     close="97.82" diff="1.00"  prcnt="1.02"}}
+    {{>lifequality name="hd"   title="Home Depot" close="127.69" diff="0.33"  prcnt="0.35"}}
+    {{>lifequality name="aapl" title="Apple"      close="95.58" diff="0.33"  prcnt="0.35"}}
+  </div>
+  <div class="visualisations-row" style="margin-top: 0px;">
+    {{>lifequality name="cvx" title="Chevron"    close="104.83"  diff="-0.20" prcnt="-0.44"}}
+    {{>lifequality name="ibm" title="IBM"        close="151.78" diff="2.27"  prcnt="1.5"}}
+    {{>lifequality name="mcd" title="McDonald's" close="120.30"   diff="-0.43" prcnt="-0.78"}}
+  </div>
+</template>
+
+<template name="timeseries">
+  <div class="visualisations-row">
+    {{>series name="dis"  title="Disney"     last="97.82"  diff="1.00"  prcnt="1.02" high="125" mid="100" low="75" top="35" start="52"}}
+    {{>series name="hd"   title="Home Depot" last="127.69"  diff="0.33"  prcnt="0.35" high="60"  mid="50"  low="40" top="25" start="37"}}
+    {{>series name="aapl" title="Apple"      last="95.58"  diff="0.33"  prcnt="0.35" high="150" mid="100" low="50" top="35" start="52"}}
+  </div>
+  <div class="visualisations-row">
+    {{>series name="cvx" title="Chevron"    last="104.83"  diff="-0.20" prcnt="-0.44" high="50"  mid="40"  low="30"  top="35" start="49"}}
+    {{>series name="ibm" title="IBM"        last="151.78" diff="2.27"  prcnt="1.5"   high="200" mid="150" low="100" top="15" start="25"}}
+    {{>series name="mcd" title="McDonald's" last="120.30"   diff="-0.43" prcnt="-0.78" high="200" mid="100" low="0"   top="25" start="41"}}
+  </div>
+</template>
+
+<template name="dots">
+  <div class="visualisations-row">
+    {{>dotplot name="dis"  title="Disney"     close="97.82"  diff="1.00"  prcnt="1.02"}}
+    {{>dotplot name="hd"   title="Home Depot" close="127.69" diff="0.33"  prcnt="0.35"}}
+    {{>dotplot name="aapl" title="Apple"      close="95.58"  diff="0.33"  prcnt="0.35"}}
+  </div>
+  <div class="visualisations-row">
+    {{>dotplot name="cvx" title="Chevron"    close="104.83" diff="-0.20" prcnt="-0.44"}}
+    {{>dotplot name="ibm" title="IBM"        close="151.78" diff="2.27"  prcnt="1.5"}}
+    {{>dotplot name="mcd" title="McDonald's" close="120.30" diff="-0.43" prcnt="-0.78"}}
+  </div>
+</template>

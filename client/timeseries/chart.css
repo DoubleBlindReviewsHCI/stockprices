@@ -1,0 +1,108 @@
+.highcharts-title {
+  display: none;
+}
+
+.highcharts-container {
+  width:  100px;
+  height: 100px;
+  overflow: visible !important;
+}
+
+.highcharts-container svg {
+  overflow: visible !important;
+  border-left: 1px solid #d1d1d1;
+}
+
+.chart {
+  width:  100px;
+  height: 100px;
+  overflow: visible !important;
+}
+
+.chart-forecast {
+  width:  100px;
+  height: 100px;
+  overflow: visible !important;
+  background: #f9f9f9;
+  border: 1px solid #d1d1d1;
+  position: relative;
+}
+
+.chart-forecast svg {
+  position: absolute;
+}
+
+.highcharts-legend { display: none; }
+.highcharts-axis   { display: none; }
+/*.highcharts-tooltip{ display: none; }*/
+.highcharts-yaxis-title  { display: none; }
+.highcharts-xaxis-labels { display: none; }
+.highcharts-yaxis-labels { display: none; }
+.highcharts-container svg text   { display:  none; }
+.highcharts-container svg g text { display:  block; }
+.highcharts-background { display: none; }
+/*.highcharts-tracker { stroke: #a1a1a1; }*/
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: #a1a1a1;
+  font-weight: 500;
+}
+
+.y-axis {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  left: -25px;
+  color: #a1a1a1;
+}
+
+.y-axis .yaxis {
+  text-align: right;
+}
+
+.now-legend {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  left: 65%;
+  top: 45%;
+  color: #424242;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.prediction-axis {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  top: 0;
+  right: -45%;
+  color: #424242;
+  font-weight: 500;
+  height: 100%;
+  /*background: red;*/
+  overflow: hidden;
+  z-index: 1;
+  width: 42px;
+}
+
+.prediction-axis .pred {
+  width: 40px;
+  position: absolute;
+  font-weight: 700;
+}

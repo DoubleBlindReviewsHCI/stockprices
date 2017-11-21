@@ -1,0 +1,413 @@
+<template name="welcome">
+  <div class="welcome-content">
+    <h1 class="welcome-h1 animated fadeIn">Welcome to this evaluation!</h1>
+    <!-- <paper-button class="skip-tutorial" style="border: 0;">Skip</paper-button> -->
+    <!--
+    <div class="welcome-description wd-x" style="margin: 30px; display: flex; justify-content: flex-start; flex-direction: column; align-items: flex-start;">
+    <paper-input class="welcome-input" label="Hello, what's your name?"></paper-input>
+    <paper-button class="skip-tutorial" style="display: none;">Begin!</paper-button>
+  </div> -->
+
+  <div class="welcome-description wd-0 animated fadeIn">
+    <p>In this evaluation we will ask you to explore the impact of some <b>economy factors</b>, in a 12 month forecast for <b>Stock Prices</b>.</p>
+    <p><b>Consumer trust</b> measures how the people feel about the current state of the economy and how they expect it to evolve.</p>
+    <p><b>Worldwide news</b>  is the important news that concerns most people. Typical news topics in this category can be positive or negative. Most companies do better (have a higher stock value) when the world does better too.</p>
+    <p><b>Economic growth</b> is a measure of how the value of everything that is being made and sold, both goods and services, grows or shrinks over time.</p>
+    <p><b>Dow Jones Index</b>, can be used as a single indicator of how well the average large U.S. company is doing. In general, we may expect that the stocks of most companies evolve in less or more the same way as the index.</p>
+    <p>We will show you a <b>visualisation</b> of these factors about 6 U.S companies. Then, we will give you a set of tasks in which we will ask you to answer <b>simple questions</b> or to describe similarities and differences.</p>
+    <br>
+    <paper-button class="wb-next-0" style="display: block;">Ok</paper-button>
+  </div>
+
+  <div class="welcome-description wd-1 animated fadeIn" style="display: none;">
+    <div style="display: flex; justify-content: center; align-items: center; background: #fafafa; padding: 10px;">
+      <img src="/tutorial/sliders.gif" style="padding: 20px;"/>
+      <div>
+        <p>
+          On the left, you can see the <b>different factors</b>
+          that <b>determine the stock price</b>.
+        </p>
+        <p>
+          You can <b>activate</b> and <b>deactivate</b> them so that they will
+          be considered (or) not in the prediction
+          of the <b>stock price</b> in all companies.
+        </p>
+      </div>
+    </div>
+    <br>
+    <div style="display: flex; flex-direction:column; justify-content: flex-start; align-items: flex-start; background: #fafafa; padding: 10px;">
+      <p>
+        In addition, you can <b>drag the sliders</b> to change each factor's <b>importance</b>.
+      </p>
+      <p>
+        <b>Consumer Trust</b>, for example:
+      </p>
+      <ul>
+        <li>If you think it will be very good next year, set its slider to <b>100%</b>.</li>
+        <li>If you think it will be <b>good</b>, set it to <b>75%</b>.</li>
+        <li>If you think it will be <b>bad</b>, set it to <b>25%</b>.</li>
+        <li>If you think it will be <b>very bad</b>, set it to <b>0%</b>.</li>
+        <li>If you don't want to consider it in the <b>prediction</b>, just <b>uncheck</b> the box.</li>
+      </ul>
+      <paper-button class="wb-next-1">Ok</paper-button>
+    </div>
+  </div>
+
+
+  {{#if option.dots}}
+  <div class="welcome-description wd-2" style="display: none;">
+    <p>
+      The visualisation shows you,
+      how widely opinions differ regarding all active aspects.
+    </p>
+    <ul>
+      <li>A <b>wide spread</b> means that <b>stock price</b> predictions are <b>very different.</b></li>
+      <li>A <b>narrow spread</b> means that <b>stock price</b> predictions are <b>rather similar.</b></li>
+    </ul>
+    <img src="/tutorial/dots.png" height="200px" style="margin-bottom: 20px;"/>
+    <paper-button class="wb-next-2">Ok</paper-button>
+  </div>
+
+  <div class="welcome-description wd-3" style="display: none;">
+    <p>
+      <b>Stock price</b> is shown above the visualisation
+    </p>
+    <img src="/tutorial/dots2.png" height="200px"/>
+    <paper-button class="wb-next-3">Ok</paper-button>
+  </div>
+
+  <div class="welcome-description wd-4" style="display: none;">
+    <p>
+      When you <b>change a factor</b>, you will often see a
+      change regarding the <b>predicted stock</b> price.
+    </p>
+    <img src="/tutorial/dots3.png" height="200px"/>
+    <p style="background: #f1f1f1; padding: 8px;">
+      <b>Pay attention:</b> Sometimes, if you change the importance of a factor,
+      <b>the stock price may increase</b>.
+      This means that the factor may contribute to a <b>high stock price</b>.
+    </p>
+    <paper-button class="wb-next-4">Ok</paper-button>
+  </div>
+  <!-- DOTS SHORT TEST -->
+  <!-- DOTS SHORT TEST -->
+  <!-- DOTS SHORT TEST -->
+  <div class="welcome-description wd-5" style="display: none;">
+    <div class="tutorial-test test-1">
+      <img src="/tutorial/dt1.png" height="200px"/>
+      <div class="question-intro" >Given to the visualisation,</div>
+      <div class="question-body"  >What is the value of the Stock Price?</div>
+      <div class="question-footer">Adjust the slider to the corresponding value.</div>
+      <div class="slider-container">
+        <div id="test-slider1" style="background: grey;"></div>
+        <div class="pips">
+          <span class="slider-zero">0</span>
+          <div  class="slider-tooltip" style="color: {{qone.color}}; left: {{simpleslider.x}}%">{{simpleslider.a}}</div>
+          <span class="slider-hound"   style="visibility:hidden;">200</span>
+        </div>
+      </div>
+      {{#if qone.display}}
+      <div class="tutorial-success">
+        <p>That's correct! The Stock Price is <b>131.00</b></p>
+        <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+      </div>
+      {{/if}}
+    </div>
+    <!-- <div class="tutorial-test test-2" style="display: none;">
+      <img src="/tutorial/dt2.png" height="200px"/>
+      <div class="question-intro" >Given the visualisation,</div>
+      <div class="question-body"  >What is the value of Quality of Life?</div>
+      <div class="question-footer">Adjust the slider to the corresponding value.</div>
+      <div class="slider-container">
+        <div id="test-slider2" style="background: grey;"></div>
+        <div class="pips">
+          <span class="slider-zero">0</span>
+          <div  class="slider-tooltip" style="color: {{qtwo.color}}; left: {{simpleslider.x}}%">{{simpleslider.a}}</div>
+          <span class="slider-hound"   style="visibility:hidden;">100</span>
+        </div>
+      </div>
+      {{#if qtwo.display}}
+      <div class="tutorial-success">
+        <p>That's correct! The Quality of Life value is <b>89</b></p>
+        <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+      </div>
+      {{/if}}
+    </div> -->
+    <div class="tutorial-test test-3" style="display: none;">
+      <img src="/tutorial/dt2.png" height="200px"/>
+      <div class="question-intro"  >Given the visualisation,</div>
+      <div class="question-body"   >The Stock Price is between...</div>
+      <div class="question-footer" >Adjust the sliders to the corresponding values.</div>
+      <div class="slider-container">
+        <div id="test-slider3"></div>
+        <div class="pips">
+          <span class="slider-zero">0</span>
+          <div  class="slider-tooltip tooltip1" style="color: {{qthree.color1}}; left: {{doubleslider.x}}%">{{doubleslider.a}}</div>
+          <div  class="slider-tooltip tooltip2" style="color: {{qthree.color2}}; left: {{doubleslider.y}}%">{{doubleslider.b}}</div>
+          <span class="slider-hound">200</span>
+        </div>
+      </div>
+      {{#if qthree.display}}
+      <div class="tutorial-success">
+        <p>That's correct! The Stock Price is between <b>75</b> and <b>150</b></p>
+        <paper-button class="wb-next-5">Ok</paper-button>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+  <!-- DOTS end -->
+  <!-- DOTS end -->
+  <!-- DOTS end -->
+
+  {{#if option.chart}}
+  <div class="welcome-description wd-2" style="display: none;">
+    <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p>The visualisation shows you the following things:</p>
+      <p><b>X-axis:</b> The opinions from experts about stock prices and factors. This is incremental from left to right.</p>
+    </div>
+    <img src="/tutorial/chart1.png" height="250px"/>
+    <paper-button class="wb-next-2">Next</paper-button>
+  </div>
+
+  <div class="welcome-description wd-3" style="display: none;">
+    <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p><b>Y-axis:</b> The Stock Price prediction regarding a certain aspect:</p>
+      <p>A <b>big</b>  cloud means that people have a very <b>different</b> opinion.</p>
+      <p>A <b>small</b> cloud means people think roughly the <b>same.</b></p>
+    </div>
+    <img src="/tutorial/chart2.png" style="height: 250px;"/>
+    <paper-button class="wb-next-3">Next</paper-button>
+  </div>
+
+  <div class="welcome-description wd-4" style="display: none;">
+    <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p>
+        The <b>thick horizontal grey line</b> shows you the predicted <b>Stock Price</b>.
+      </p>
+      <p>
+        The vertical line combines the mean value of the <b>stock factors</b> concerning both aspects.
+      </p>
+      <p>
+        When you <b>change an aspect</b>, you will often see a <b>change regarding
+          the predicted stock price</b>.
+        </p>
+      </div>
+      <img src="/tutorial/chart3.png" height="200px"/>
+      <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p>
+        <b>Pay attention:</b> Sometimes, if you change the importance of an aspect,
+        <b>the market opinions may increase while the stock price decreases.</b>
+        This means that the aspect may contribute to a <b>high stock price</b>,
+        but that people have a <b>negative opinion of it.</b>
+      </p>
+      </div>
+      <br>
+      <paper-button class="wb-next-4">Ok</paper-button>
+    </div>
+    <!-- CHART SHORT TEST -->
+    <!-- CHART SHORT TEST -->
+    <!-- CHART SHORT TEST -->
+    <div class="welcome-description wd-5" style="display: none;">
+      <div class="tutorial-test test-1">
+        <img src="/tutorial/ct1.png" height="250px"/>
+        <div class="question-intro"  >Given to the visualisation,</div>
+        <div class="question-body"   >What is the value of Stock Price?</div>
+        <div class="question-footer" >Adjust the slider to the corresponding value.</div>
+        <div class="slider-container">
+          <div id="test-slider1" style="background: grey;"></div>
+          <div class="pips">
+            <span class="slider-zero">0</span>
+            <div  class="slider-tooltip" style="color: {{qone.color}}; left: {{simpleslider.x}}%">{{simpleslider.a}}</div>
+            <span class="slider-hound"   style="visibility:hidden;">200</span>
+          </div>
+        </div>
+        {{#if qone.display}}
+        <div class="tutorial-success">
+          <p>That's correct! The Stock Price is <b>131.00</b></p>
+          <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+        </div>
+        {{/if}}
+      </div>
+      <!-- <div class="tutorial-test test-2" style="display: none;">
+        <img src="/tutorial/ct2.png" height="200px"/>
+        <div class="question-intro"  style="margin: 0;">Given the visualisation,</div>
+        <div class="question-body"   style="margin: 0; font-size: 20px;">What is the value of Quality of Life?</div>
+        <div class="question-footer" style="margin: 0; font-size: 12px;">Adjust the slider to the corresponding value.</div>
+        <div class="slider-container">
+          <div id="test-slider2" style="background: grey;"></div>
+          <div class="pips">
+            <span class="slider-zero">0</span>
+            <div  class="slider-tooltip" style="color: {{qtwo.color}}; left: {{simpleslider.x}}%">{{simpleslider.a}}</div>
+            <span class="slider-hound"   style="visibility:hidden;">100</span>
+          </div>
+        </div>
+        {{#if qtwo.display}}
+        <div class="tutorial-success">
+          <p>That's correct! The Quality of Life value is <b>89</b></p>
+          <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+        </div>
+        {{/if}}
+      </div> -->
+      <div class="tutorial-test test-3" style="display: none;">
+        <img src="/tutorial/ct2.png" height="250px"/>
+        <div class="question-intro"  >Given the visualisation,</div>
+        <div class="question-body"   >The Stock Price is between...</div>
+        <div class="question-footer" >Adjust the sliders to the corresponding values.</div>
+        <div class="slider-container">
+          <div id="test-slider3"></div>
+          <div class="pips">
+            <span class="slider-zero">0</span>
+            <div  class="slider-tooltip tooltip1" style="color: {{qthree.color1}}; left: {{doubleslider.x}}%">{{doubleslider.a}}</div>
+            <div  class="slider-tooltip tooltip2" style="color: {{qthree.color2}}; left: {{doubleslider.y}}%">{{doubleslider.b}}</div>
+            <span class="slider-hound">100</span>
+          </div>
+        </div>
+        {{#if qthree.display}}
+        <div class="tutorial-success">
+          <p>That's correct! The Stock Price is between <b>75</b> and <b>150</b></p>
+          <paper-button class="wb-next-5">Ok</paper-button>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if option.map}}
+    <div class="welcome-description wd-2" style="display: none;">
+      <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p>
+          The visualisation shows you
+          a prediction of the <b>stock price</b> for the next 12 months
+          and how widely it differs according to some <b>stock factors</b>.
+      </p>
+      <img src="/tutorial/map1.png" style="height: 200px;"/>
+      </div>
+      <paper-button class="wb-next-2">Next</paper-button>
+    </div>
+
+    <div class="welcome-description wd-3" style="display: none;">
+      <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+      <p>When you <b>change a factor</b>, you will often see a
+        <b>change regarding the predicted stock price</b>.</p>
+        </div>
+        <img src="/tutorial/map2.png" style="height: 200px;"/>
+        <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+        <p><b>But pay attention:</b> Sometimes, if you change the importance of a factor,
+          <b>the predicted stock price may increase.</b>
+          This means that the factor may contribute to a <b>high stock price</b>.
+        </p>
+        </div>
+        <paper-button class="wb-next-3">Next</paper-button>
+      </div>
+
+      <div class="welcome-description wd-4" style="display: none;">
+        <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+        <p>
+          You can read the predicted value from the horizontal line. It shows you how widely
+          <b>predictions differ.</b>
+        </p>
+        </div>
+        <img src="/tutorial/map3.png" style="height: 200px;"/>
+        <div style="background: #fafafa; padding: 10px; border-radius: 5px;">
+        <p>
+          A <b>big spread</b> means that <b>predictions differ widely</b>.
+          A <b>small spread</b> means <b>predictions are largely the same</b>.
+        </p>
+        </div>
+        <paper-button class="wb-next-4">Next</paper-button>
+      </div>
+      <!-- map SHORT TEST -->
+      <!-- map SHORT TEST -->
+      <!-- map SHORT TEST -->
+      <div class="welcome-description wd-5" style="display: none;">
+        <div class="tutorial-test test-1">
+          <div style="display: flex; align-items: flex-end; align-self:center;">
+            <img src="/tutorial/mt1.png" height="200px"/>
+          </div>
+          <div class="question-intro" >Given to the visualisation,</div>
+          <div class="question-body"  >What is the predicted Stock Price?</div>
+          <div class="question-footer">Adjust the slider to the corresponding value.</div>
+          <div class="slider-container">
+            <div id="test-slider1" style="background: grey;"></div>
+            <div class="pips">
+              <span class="slider-zero">0</span>
+              <div  class="slider-tooltip" style="color: {{qone.color}}; left: {{simpleslider.x}}%">{{simpleslider.a}}</div>
+              <span class="slider-hound"   style="visibility:hidden;">200</span>
+            </div>
+          </div>
+          {{#if qone.display}}
+          <div class="tutorial-success">
+            <p>That's correct! The forecast Stock Price is <b>131</b></p>
+            <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+          </div>
+          {{/if}}
+        </div>
+        <!-- <div class="tutorial-test test-2" style="display: none;">
+          <div style="display: flex; align-items: flex-end; margin-bottom: 20px;">
+            <img src="/tutorial/mt2.png" height="200px"/>
+            <img src="/tutorial/mtx.png" height="100px" style="align-self: flex-end;"/>
+          </div>
+          <div class="question-intro"  style="margin: 0;">Given the visualisation,</div>
+          <div class="question-body"   style="margin: 0; font-size: 20px;">What is the value of Quality of Life?</div>
+          <div class="question-footer" style="margin: 0; font-size: 12px;">Adjust the slider to the corresponding value.</div>
+          <div class="slider-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
+            <div id="test-slider2" style="display: none;"></div>
+            <label><input type="radio" name="faces" value="low"    class="radio-button faces-radio rb-low"   >Low   </label>
+            <label><input type="radio" name="faces" value="medium" class="radio-button faces-radio rb-medium">Medium</label>
+            <label><input type="radio" name="faces" value="high"   class="radio-button faces-radio rb-high"  >High  </label>
+          </div>
+          <div class="tutorial-success tutorial-map-two" style="display: none;">
+            <p>That's correct! The Quality of Life value is <b>High</b></p>
+            <paper-button class="wb-next-5-3" style="display: block;">Next</paper-button>
+          </div>
+        </div> -->
+
+        <div class="tutorial-test test-3" style="display: none;">
+          <img src="/tutorial/mt2.png" height="200px"/>
+          <div class="question-intro" >Given the visualisation,</div>
+          <div class="question-body"  >The predicted Stock Price is between...</div>
+          <div class="question-footer">Adjust the sliders to the corresponding values.</div>
+          <div class="slider-container">
+            <div id="test-slider3"></div>
+            <div class="pips">
+              <span class="slider-zero">0</span>
+              <div  class="slider-tooltip tooltip1" style="color: {{qthree.color1}}; left: {{doubleslider.x}}%">{{doubleslider.a}}</div>
+              <div  class="slider-tooltip tooltip2" style="color: {{qthree.color2}}; left: {{doubleslider.y}}%">{{doubleslider.b}}</div>
+              <span class="slider-hound">200</span>
+            </div>
+          </div>
+          {{#if qthree.display}}
+          <div class="tutorial-success">
+            <p>That's correct! The Stock Price is between <b>75</b> and <b>150</b></p>
+            <paper-button class="wb-next-5">Ok</paper-button>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+
+      {{/if}}
+
+      <div class="welcome-description wd-end" style="display: none;">
+        <p>
+          Now we will give you a set of tasks to answer using the
+          sliders and the visualisation. After that we will ask you some questions.
+        </p>
+        <p style="background: #f1f1f1; padding: 8px;">
+          IMPORTANT: We know this test may not be easy. However,
+          <b>we will reward you more, the better you do</b>.
+          Here is the reward you can expect:
+        </p>
+        <div>
+          <p><b>33%</b> of questions correct: <b>$0.50</b></p>
+          <p><b>66%</b> of questions correct: <b>$2</b> (bonus)</p>
+          <p><b>90%</b> of questions or more: <b>$3.50</b> (bonus)</p>
+        </div>
+        <br>
+        <p>
+          Good luck!
+        </p>
+        <paper-button class="wb-next-end">Ok</paper-button>
+      </div>
+    </div>
+  </template>

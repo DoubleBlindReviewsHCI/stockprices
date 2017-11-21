@@ -1,0 +1,58 @@
+/* CSS declarations go here */
+
+.slider {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-top: 25px;
+  height: 63px;
+}
+
+.slider paper-slider {
+  width: 100%;
+  margin-bottom: -10px;
+  margin-top:    -5px;
+  margin-left:   -15px;
+}
+
+.slider-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider .slider-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #424242;
+}
+
+.slider-bottom {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: #a1a1a1;
+  width: 218px;
+}
+
+.slider-head {
+  display: flex;
+  font-weight: 300;
+  font-size: 18px;
+  color: #424242;
+  justify-content: space-between;
+  width: 220px;
+  align-items: center;
+  height: 20px;
+}
+
+.slider .slider-value {
+  color: #a1a1a1;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+.slider .slider-value span {
+  font-size: 12px;
+}
